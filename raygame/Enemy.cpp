@@ -53,19 +53,23 @@ void Enemy::updatePatrolLocation()
 {
 	//Calculate the distance between the current patrol point and the current position
 	MathLibrary::Vector2 direction = m_currentPoint - getLocalPosition();
-	/*float distance = direction.getMagnitude;*/
+	float distance = direction.getMagnitude;
 }
 
 
 void Enemy::draw()
 {
-	Enemy::m_sprite.draw(m_globalTransform*);
+	Enemy::m_sprite.draw*(getWorldPosition());
+	Actor::draw();
 }
 
 //do second
 void Enemy::update(float deltaTime)
 {
 	//dependant on checkTargetInSight so will be adding later
+
+	updatePatrolLocation();
+	Actor::update(deltaTime);
 }
 
 
