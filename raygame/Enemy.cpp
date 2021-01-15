@@ -1,30 +1,35 @@
 #pragma once
 #include <cmath>;
-
 #include "Actor.h"
+#include "raylib.h"
 #include "Enemy.h";
 
 
-
-//Add points
-
-//remove points
-
+Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon = ' ')
+{
+	Actor m_target;
+	Color m_alertColor;
+	m_currentPoint = MathLibrary::Vector2();
+	 m_newPoint = MathLibrary::Vector2();
+	float m_speed;
+	Sprite m_sprite;
+}
 /// <param name="x">Position on the x axis</param>
 /// <param name="y">Position on the y axis</param>
 /// <param name="icon">The symbol that will appear when drawn</param>
-Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon = ' ')
+Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon = ' ') : Enemy(x, y, newPoint, ' ')
 {
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
+	m_sprite =* sprite;
 }
-Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, char icon = ' ')
+Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, const char* spriteFilePath, char icon = ' ') : Enemy(x, y, newPoint, ' ')
 {
 	m_alertColor = CLITERAL(RED);
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
 
-	/*m_sprite = new Sprite("Images/enemy.png");*/
+	m_sprite =* new Sprite(spriteFilePath);
 }
 
 //do second
@@ -54,6 +59,16 @@ void Enemy::updatePatrolLocation()
 	//Calculate the distance between the current patrol point and the current position
 	MathLibrary::Vector2 direction = m_currentPoint - getLocalPosition();
 	float distance = direction.getMagnitude;
+
+	//Switch to the new patrol point if the enemy is within distance of the current one
+	if (m_currentPoint == m_newPoint && distance <= 1)
+		m_currentPoint = m_newPoint; //<---new point is supposed to be point B
+	else if (m_currentPoint == m_newPoint && distance <= 1) //<----new point is supposed to be point B
+		m_currentPoint = m_newPoint;
+
+	//Calcute new velocity to travel to the next waypoint
+	direction = m_currentPoint - getLocalPosition();
+	/*velocity = direction.getNormalized * speed;*/
 }
 
 

@@ -8,9 +8,15 @@
 #include "Sprite.h"
 #include "raylib.h"
 
+class Sprite;
 
 class Enemy : Actor
 {
+public:
+	Enemy() {}
+	Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon = ' ');
+	Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon = ' ');
+	Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, const char* spriteFilePath, char icon = ' ');
 private:
 	Actor m_target;
 	Color m_alertColor;
@@ -38,15 +44,17 @@ private:
 	Sprite m_sprite;
 
 public:
-	float getSpeed();
-	Actor getTarget();
+	//speed
+	float setSpeed(float value);
+	float getSpeed() { return m_speed;};
 
+	//target
+	Actor getTarget() { return m_target; };
+
+	//this will most likely be moved to game since it will be added during game
 	//Add points
 
 	//remove points
-
-	Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon = ' ') {};
-	Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, char icon = ' ') {};
 
 	bool checkTargetInSight() {};
 
