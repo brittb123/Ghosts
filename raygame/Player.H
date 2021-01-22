@@ -2,7 +2,7 @@
 
 #include "Player.h"
 #include "Actor.h"
-
+#include "Sprite.h"
 #include <Vector2.h>
 #include <Matrix3.h>
 
@@ -18,13 +18,13 @@ public:
 	// <param> float maxspeed: set the payer's max speed to a certain value.
 	Player(float x, float y, float collisionradius, Sprite m_sprite, float speed, float maxspeed);
 
-	Player(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon = ' ');
+	Player(float x, float y, Sprite* sprite, char icon = ' ');
 
 	// <param> float x: Set the player's X position.
 	// <param> float y: Set the player's y position.
 	// <param> float speed: set the players speed to a certain value.
 	// <param> float maxspeed: set the payer's max speed to a certain value.
-	Player(float x, float y, Sprite sprite, float collisionradius, float speed, float maxspeed);
+	Player(float x, float y, const char* spriteFilePath, float collisionradius, float speed, float maxspeed);
 
 	void update(float deltaTime) override;
 

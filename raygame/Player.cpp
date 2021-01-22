@@ -4,13 +4,14 @@
 #include <raylib.h>
 
 
-Player::Player(float x, float y, Sprite sprite, float collisionradius,  float speed, float maxspeed) :
+Player::Player(float x, float y, const char* spriteFilePath, float collisionradius,  float speed, float maxspeed) :
 Actor::Actor(x, y, collisionradius, speed, maxspeed)
 {
 	
 	speed = m_soeed;
 	collisionradius = m_collisionradius;
 	maxspeed = m_maxspeed;
+	m_sprite = *new Sprite(spriteFilePath);
     Actor::setLocalPosition(MathLibrary::Vector2(x, y));
 
 }
@@ -28,7 +29,7 @@ void Player::GetPlayerInput()
 
 void Player::draw()
 {
-	Player::m_sprite->draw*(getWorldPosition());
+	
 	Actor::draw();
 }
 
