@@ -13,7 +13,7 @@ class Sprite;
 class Enemy : Actor
 {
 public:
-	Enemy() {}
+	Enemy();
 	Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon = ' ');
 	Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon = ' ');
 	Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, const char* spriteFilePath, char icon = ' ');

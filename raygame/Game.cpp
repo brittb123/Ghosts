@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Enemy.cpp"
 #include "raylib.h"
 
 bool Game::m_gameOver = false;
@@ -27,6 +28,11 @@ void Game::start()
 	m_camera->zoom = 1;
 
 	SetTargetFPS(60);
+}
+
+void Game::initializing()
+{
+	Enemy* enemy = new Enemy(0, 5, int(10), ' ');
 }
 
 void Game::update(float deltaTime)
@@ -66,6 +72,7 @@ MathLibrary::Matrix3* Game::getWorld()
 void Game::run()
 {
 	start();
+	initializing();
 
 	while (!m_gameOver && !RAYLIB_H::WindowShouldClose())
 	{

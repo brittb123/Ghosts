@@ -81,6 +81,7 @@ public:
 
 private:
 	void start();
+    void initializing();
 	void update(float delaTime);
 	void draw();
 	void end();
