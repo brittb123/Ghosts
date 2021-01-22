@@ -32,7 +32,7 @@ Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, co
 	m_sprite =* new Sprite(spriteFilePath);
 }
 
-//do second
+//this will be done after we get the main game working~
 //bool Enemy::checkTargetInSight(float maxAngle, float maxDistance)
 //{
 //	//Checks if the target has a value before continuing
