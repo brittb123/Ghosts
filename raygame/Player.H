@@ -16,8 +16,9 @@ public:
 	// <param> float speed: set the players speed to a certain value.
 	// <param> float collisionradius:
 	// <param> float maxspeed: set the payer's max speed to a certain value.
-	Player(float x, float y, float collisionradius, float speed, float maxspeed);
+	Player(float x, float y, float collisionradius, Sprite m_sprite, float speed, float maxspeed);
 
+	Player(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon = ' ');
 
 	// <param> float x: Set the player's X position.
 	// <param> float y: Set the player's y position.
@@ -25,10 +26,7 @@ public:
 	// <param> float maxspeed: set the payer's max speed to a certain value.
 	Player(float x, float y, Sprite sprite, float collisionradius, float speed, float maxspeed);
 
-	//A function to set a players local position to a specific point of the screen.
-	void setLocalPosition(MathLibrary::Vector2 value);
-
-	MathLibrary::Vector2 getLocalPosition();
+	void update(float deltaTime) override;
 
 	// A function that will be called and used for player input and movement of players sprite.
 	void GetPlayerInput();
@@ -36,6 +34,8 @@ public:
 	bool checkCollision(Player* other);
 
 	void OnCollision();
+
+	void draw() override;
 
 
 
@@ -56,5 +56,6 @@ private:
 	float m_soeed;
 	float m_maxspeed;
 	float m_collisionradius;
+	Sprite m_sprite;
 
 };
