@@ -1,4 +1,26 @@
-# raygame - sample project
+# About This Game!
+
+# Controls
+> Buttons  | What they do
+>----------|---------------------------------
+>    UP    | Moves Character Up
+>   Down   | Moves Character Down
+>   Right  | Moves Character to the Right
+>   Left   | Moves the Character to the Left
+>   SPACE  | This does a jedi attack move
+
+# Soon to come
+
+> Item Class
+> more enemy types
+> 
+
+> Ability's Names | What They Do
+>-----------------|---------------------------------------------------------------
+>   Cherry Bomb   | Player can throw this at enemies at a distance and deal damage
+>   Banna Magnet  | This allows items around player to automatically come to them
+
+# Copy Right
 
 This is a sample C++ project setup with [raylib][raylib] for Visual
 Studio 2019. Raylib is a simple game programming framework that is designed to
@@ -7,13 +29,13 @@ be friendly to beginners. It is created by [Ramon Santamaria
 
 This version is compatible with any documentation referring to Raylib 3.0.
 
-It is primarily intended for use by students in the Game Programming course at
+It is primarily intended for use by us students in the Game Programming course at
 the Seattle Campus of the Academy of Interactive Entertainment.
 
 [raylib]:https://github.com/raysan5/raylib
 [raysan]:https://github.com/raysan5
 
-## Getting Started
+## Getting Started with Raylib!
 
 To get started with this sample project, click the _Use this template_ button
 up top to copy this repository to your own account. Then, follow the
