@@ -7,6 +7,10 @@
 #include "Player.cpp"
 #include "raylib.h"
 
+//To Britt:
+//can you try to make printOptions() and battle() situated in a specific spot in the screen?
+//for some reason theres errors when playing in enemy even tho it didn't happen at school
+
 bool Game::m_gameOver = false;
 Scene** Game::m_scenes = new Scene*;
 int Game::m_sceneCount = 0;
@@ -89,11 +93,16 @@ void Game::battle()
 
 		//If action select was attack, have the player attack the enemy. Otherwise, return that the player escaped.
 		if (choice == 1)
+		{
 			std::cout << "You did: " << playerAttack << " damage!" << std::endl;
+			enemyHealth -= playerAttack;
+			//maybe make it where the screen turns red when attacking but goes back to black
+		}
+			
 		else
 			break;
-
 	}
+	setGameOver(true);
 }
 
 void Game::draw()
