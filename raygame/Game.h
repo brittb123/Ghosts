@@ -80,8 +80,10 @@ public:
     void run();
 
 private:
+    int printOptions(const char* context, const char* option1, const char* option2);
 	void start();
 	void update(float delaTime);
+    void battle();
 	void draw();
 	void end();
 

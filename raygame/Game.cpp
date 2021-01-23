@@ -1,11 +1,26 @@
+#pragma once
+
+#include <iostream>
+
 #include "Game.h"
+#include "Enemy.cpp"
+#include "Player.cpp"
 #include "raylib.h"
+
+//To Britt:
+//can you try to make printOptions() and battle() situated in a specific spot in the screen?
+//for some reason theres errors when playing in enemy even tho it didn't happen at school
 
 bool Game::m_gameOver = false;
 Scene** Game::m_scenes = new Scene*;
 int Game::m_sceneCount = 0;
 int Game::m_currentSceneIndex = 0;
 
+//characters
+Enemy* enemy = new Enemy();
+Player* player = new Player();
+int enemyHealth = 100;
+int playerAttack = 10;
 
 Game::Game()
 {
@@ -14,6 +29,36 @@ Game::Game()
 	m_camera = new Camera2D();
 	m_currentSceneIndex = 0;
 	m_sceneCount = 0;
+}
+
+int Game::printOptions(const char* context, const char* option1, const char* option2)
+{
+
+	int input = -1;
+
+	//Loops until the player selects an existing option
+	while (input != 1 && input != 2)
+	{
+		//Prints the header and options for the menu.
+		std::cout << context << std::endl;
+		std::cout << "1. " << option1 << std::endl;
+		std::cout << "> ";
+
+		//Gets player input.
+		std::cin >> input;
+
+		//Checks if the player entered an acceptable input.
+		if (input != 1)
+		{
+			//If the player did not input something valid, print an error and clear the screen.
+			std::cout << "Invalid Input. Try Again";
+			system("pause");
+			system("cls");
+		}
+	}
+
+	//Return the player's choice.
+	return input;
 }
 
 void Game::start()
@@ -29,12 +74,35 @@ void Game::start()
 	SetTargetFPS(60);
 }
 
+
 void Game::update(float deltaTime)
 {
 	for (int i = 0; i < m_sceneCount; i++)
 	{
 		m_scenes[i]->update(deltaTime);
 	}
+}
+
+//this will hopefully allow player to attack enemy, granted from anywhere
+void Game::battle()
+{
+	while (enemyHealth > 0)
+	{
+		//Gets player action
+		int choice = printOptions("Your Turn", "Attack", "Run");
+
+		//If action select was attack, have the player attack the enemy. Otherwise, return that the player escaped.
+		if (choice == 1)
+		{
+			std::cout << "You did: " << playerAttack << " damage!" << std::endl;
+			enemyHealth -= playerAttack;
+			//maybe make it where the screen turns red when attacking but goes back to black
+		}
+			
+		else
+			break;
+	}
+	setGameOver(true);
 }
 
 void Game::draw()
@@ -58,6 +126,7 @@ void Game::end()
 	CloseWindow();
 }
 
+
 MathLibrary::Matrix3* Game::getWorld()
 {
 	return getCurrentScene()->getWorld();
@@ -72,6 +141,7 @@ void Game::run()
 		float deltaTime = RAYLIB_H::GetFrameTime();
 		update(deltaTime);
 		draw();
+		battle();
 	}
 
 	end();
