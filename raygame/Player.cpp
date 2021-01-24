@@ -13,7 +13,7 @@ Actor::Actor(x, y, collisionradius, speed, maxspeed)
 	maxspeed = m_maxspeed;
 	m_sprite = *new Sprite(spriteFilePath);
     Actor::setLocalPosition(MathLibrary::Vector2(x, y));
-
+	m_sprite = *new Sprite("Image/player.PNG");
 }
 void Player::GetPlayerInput()
 {

@@ -74,6 +74,7 @@ void Enemy::updatePatrolLocation()
 
 void Enemy::draw()
 {
+	Enemy::m_sprite =* new Sprite("Image/blue.PNG");
 	Enemy::m_sprite.draw*(getWorldPosition());
 	Actor::draw();
 }
