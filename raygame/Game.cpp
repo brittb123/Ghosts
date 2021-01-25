@@ -3,11 +3,11 @@
 #include <iostream>
 #include <Vector2.h>
 #include <Matrix3.h>
-#include "Game.h"
 #include "raylib.h"
-#include "Enemy.cpp"
-#include "Player.cpp"
-#include "Actor.cpp";
+#include "Game.h"
+#include "Enemy.h"
+#include "Player.H"
+#include "Actor.h";
 
 //To Britt:
 //can you try to make printOptions() and battle() situated in a specific spot in the screen?
