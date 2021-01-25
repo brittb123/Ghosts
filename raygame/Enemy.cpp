@@ -9,25 +9,24 @@ Enemy::Enemy()
 {
 }
 
-Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon = ' ')
+Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon)
 {
 	Actor m_target;
 	Color m_alertColor;
 	m_currentPoint = MathLibrary::Vector2();
-	 m_newPoint = MathLibrary::Vector2();
+	m_newPoint = MathLibrary::Vector2();
 	float m_speed;
 	Sprite m_sprite;
 }
-/// <param name="x">Position on the x axis</param>
-/// <param name="y">Position on the y axis</param>
-/// <param name="icon">The symbol that will appear when drawn</param>
-Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon = ' ')
+
+Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon)
 {
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
-	m_sprite =* sprite;
+	m_sprite = *sprite;
 }
-Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, const char* spriteFilePath, char icon = ' ')
+
+Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, const char* spriteFilePath, char icon)
 {
 	m_alertColor = CLITERAL(RED);
 	m_newPoint = newPoint;
