@@ -7,18 +7,20 @@
 >   Down   | Moves Character Down
 >   Right  | Moves Character to the Right
 >   Left   | Moves the Character to the Left
->   SPACE  | This does a jedi attack move
+>     1    | This does a jedi attack move
 
 # Soon to come
 
 > Item Class
 > more enemy types
-> 
+> better attack function
 
 > Ability's Names | What They Do
 >-----------------|---------------------------------------------------------------
 >   Cherry Bomb   | Player can throw this at enemies at a distance and deal damage
 >   Banna Magnet  | This allows items around player to automatically come to them
+
+More to come....
 
 # Copy Right
 
