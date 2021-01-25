@@ -1,11 +1,13 @@
 #pragma once
 
 #include <iostream>
-
+#include <Vector2.h>
+#include <Matrix3.h>
 #include "Game.h"
+#include "raylib.h"
 #include "Enemy.cpp"
 #include "Player.cpp"
-#include "raylib.h"
+#include "Actor.cpp";
 
 //To Britt:
 //can you try to make printOptions() and battle() situated in a specific spot in the screen?
@@ -72,6 +74,8 @@ void Game::start()
 	m_camera->zoom = 1;
 
 	SetTargetFPS(60);
+
+	enemy->Actor::setWorldPostion(MathLibrary::Vector2(45, 45));
 }
 
 

@@ -10,7 +10,7 @@
 
 class Sprite;
 
-class Enemy : Actor
+class Enemy : public Actor
 {
 public:
 	Enemy();
