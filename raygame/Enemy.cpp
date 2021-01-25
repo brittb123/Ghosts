@@ -5,31 +5,35 @@
 #include "Enemy.h";
 
 
-Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon = ' ')
+Enemy::Enemy()
+{
+}
+
+Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon)
 {
 	Actor m_target;
 	Color m_alertColor;
 	m_currentPoint = MathLibrary::Vector2();
-	 m_newPoint = MathLibrary::Vector2();
+	m_newPoint = MathLibrary::Vector2();
 	float m_speed;
 	Sprite m_sprite;
 }
-/// <param name="x">Position on the x axis</param>
-/// <param name="y">Position on the y axis</param>
-/// <param name="icon">The symbol that will appear when drawn</param>
-Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon = ' ') : Enemy(x, y, newPoint, ' ')
+
+Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon)
 {
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
-	m_sprite =* sprite;
+	m_sprite = *sprite;
 }
-Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, const char* spriteFilePath, char icon = ' ') : Enemy(x, y, newPoint, ' ')
+
+Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, const char* spriteFilePath, char icon)
 {
 	m_alertColor = CLITERAL(RED);
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
 
 	m_sprite =* new Sprite(spriteFilePath);
+	m_sprite = *new Sprite("Image/blue.PNG");
 }
 
 //this will be done after we get the main game working~
@@ -58,7 +62,7 @@ void Enemy::updatePatrolLocation()
 {
 	//Calculate the distance between the current patrol point and the current position
 	MathLibrary::Vector2 direction = m_currentPoint - getLocalPosition();
-	float distance = direction.getMagnitude;
+	float distance = direction.getMagnitude();
 
 	//Switch to the new patrol point if the enemy is within distance of the current one
 	if (m_currentPoint == m_newPoint && distance <= 1)
@@ -71,18 +75,10 @@ void Enemy::updatePatrolLocation()
 	/*velocity = direction.getNormalized * speed;*/
 }
 
-
-void Enemy::draw()
-{
-	Enemy::m_sprite.draw*(getWorldPosition());
-	Actor::draw();
-}
-
 //do second
 void Enemy::update(float deltaTime)
 {
 	//dependant on checkTargetInSight so will be adding later
-
 	updatePatrolLocation();
 	Actor::update(deltaTime);
 }
