@@ -38,3 +38,4 @@ void Player::update(float deltaTime)
 	Player::GetPlayerInput();
 	Actor::update(deltaTime);
 }
+
