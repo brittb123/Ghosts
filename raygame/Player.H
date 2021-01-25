@@ -6,7 +6,7 @@
 #include <Vector2.h>
 #include <Matrix3.h>
 
-class Player : Actor
+class Player : public Actor
 {
 public:
 	Player();

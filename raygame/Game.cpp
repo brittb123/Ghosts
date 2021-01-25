@@ -76,15 +76,18 @@ void Game::start()
 	SetTargetFPS(60);
 
 	enemy->Actor::setWorldPostion(MathLibrary::Vector2(45, 45));
+	player->Actor::setWorldPostion(MathLibrary::Vector2(45, 45));
 }
 
 
 void Game::update(float deltaTime)
 {
+	player->Actor::checkCollision(enemy);
 	for (int i = 0; i < m_sceneCount; i++)
 	{
 		m_scenes[i]->update(deltaTime);
 	}
+	
 }
 
 //this will hopefully allow player to attack enemy, granted from anywhere
