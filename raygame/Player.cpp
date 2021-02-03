@@ -3,7 +3,16 @@
 #include "Actor.h"
 #include <raylib.h>
 
-Player::Player() {};
+Player::Player() 
+{
+	Actor::m_translation = new MathLibrary::Matrix3();
+	Actor::m_globalTransform = new MathLibrary::Matrix3();
+	m_localTransform = new MathLibrary::Matrix3();
+	m_rotation = new MathLibrary::Matrix3();
+	
+
+	
+};
 
 void Player::GetPlayerInput()
 {
@@ -19,7 +28,6 @@ void Player::GetPlayerInput()
 
 void Player::draw()
 {
-	
 	Actor::draw();
 }
 

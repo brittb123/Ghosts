@@ -7,6 +7,8 @@
 
 Enemy::Enemy()
 {
+	m_translation = new MathLibrary::Matrix3();
+	m_globalTransform = new MathLibrary::Matrix3();
 }
 
 Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon)
@@ -14,6 +16,8 @@ Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon)
 	Actor m_target;
 	Color m_alertColor;
 	m_currentPoint = MathLibrary::Vector2();
+	m_globalTransform = new MathLibrary::Matrix3();
+	m_translation = new MathLibrary::Matrix3();
 	m_newPoint = MathLibrary::Vector2();
 	float m_speed;
 	Sprite m_sprite;
@@ -21,6 +25,8 @@ Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon)
 
 Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, char icon)
 {
+	m_translation = new MathLibrary::Matrix3();
+	m_globalTransform = new MathLibrary::Matrix3();
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
 	m_sprite = *sprite;
@@ -31,9 +37,10 @@ Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, co
 	m_alertColor = CLITERAL(RED);
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
-
+	m_translation = new MathLibrary::Matrix3();
+	m_globalTransform = new MathLibrary::Matrix3();
 	m_sprite =* new Sprite(spriteFilePath);
-	m_sprite = *new Sprite("Image/blue.PNG");
+	m_sprite =* new Sprite("Image/blue.PNG");
 }
 
 //this will be done after we get the main game working~
