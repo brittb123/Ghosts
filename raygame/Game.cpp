@@ -75,8 +75,8 @@ void Game::start()
 
 	SetTargetFPS(60);
 
-	enemy->Actor::setWorldPostion(MathLibrary::Vector2(45, 45));
-	player->Actor::setWorldPostion(MathLibrary::Vector2(45, 45));
+	enemy->Actor::setWorldPostion(MathLibrary::Vector2(10, 10));
+	player->Actor::setWorldPostion(MathLibrary::Vector2(10, 10));
 }
 
 
