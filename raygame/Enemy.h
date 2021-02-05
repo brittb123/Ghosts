@@ -32,6 +32,7 @@ public:
 	//speed
 	float setSpeed(float value);
 	float getSpeed() { return m_speed;};
+	void draw() override;
 
 	//target
 	Actor getTarget() { return m_target; };
