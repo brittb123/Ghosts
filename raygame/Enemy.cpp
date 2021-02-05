@@ -9,6 +9,10 @@ Enemy::Enemy()
 {
 	m_translation = new MathLibrary::Matrix3();
 	m_globalTransform = new MathLibrary::Matrix3();
+	m_localTransform = new MathLibrary::Matrix3();
+	Actor::m_translation = new MathLibrary::Matrix3();
+	Actor::m_rotation = new MathLibrary::Matrix3();
+	Actor::m_scale = new MathLibrary::Matrix3();
 }
 
 Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon)
@@ -17,6 +21,7 @@ Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, char icon)
 	Color m_alertColor;
 	m_currentPoint = MathLibrary::Vector2();
 	m_globalTransform = new MathLibrary::Matrix3();
+	m_localTransform = new MathLibrary::Matrix3();
 	m_translation = new MathLibrary::Matrix3();
 	m_newPoint = MathLibrary::Vector2();
 	float m_speed;
@@ -27,6 +32,7 @@ Enemy::Enemy(float x, float y, MathLibrary::Vector2 newPoint, Sprite* sprite, ch
 {
 	m_translation = new MathLibrary::Matrix3();
 	m_globalTransform = new MathLibrary::Matrix3();
+	m_localTransform = new MathLibrary::Matrix3();
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
 	m_sprite = *sprite;
@@ -38,6 +44,7 @@ Enemy::Enemy(float x, float y, Color rayColor, MathLibrary::Vector2 newPoint, co
 	m_newPoint = newPoint;
 	m_currentPoint = newPoint;
 	m_translation = new MathLibrary::Matrix3();
+	m_localTransform = new MathLibrary::Matrix3();
 	m_globalTransform = new MathLibrary::Matrix3();
 	m_sprite =* new Sprite(spriteFilePath);
 	m_sprite =* new Sprite("Image/blue.PNG");
@@ -80,6 +87,12 @@ void Enemy::updatePatrolLocation()
 	//Calcute new velocity to travel to the next waypoint
 	direction = m_currentPoint - getLocalPosition();
 	/*velocity = direction.getNormalized * speed;*/
+}
+
+void Enemy::draw()
+{
+	DrawCircle(getWorldPosition().x * 32, getWorldPosition().y * 32, 50, BLUE);;
+	Actor::draw();
 }
 
 //do second

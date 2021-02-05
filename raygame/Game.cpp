@@ -67,6 +67,13 @@ void Game::start()
 {
 	int screenWidth = 1024;
 	int screenHeight = 760;
+	Scene* scene1 = new Scene();
+	
+
+	addScene(scene1);
+
+	scene1->addActor(player);
+	scene1->addActor(enemy);
 
 	InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 	m_camera->offset = { (float)screenWidth / 2, (float)screenHeight / 2 };
@@ -75,8 +82,9 @@ void Game::start()
 
 	SetTargetFPS(60);
 
-	enemy->Actor::setWorldPostion(MathLibrary::Vector2(10, 10));
-	player->Actor::setWorldPostion(MathLibrary::Vector2(10, 10));
+	
+	enemy->Actor::setWorldPostion(MathLibrary::Vector2(15, 15));
+	player->Actor::setWorldPostion(MathLibrary::Vector2(2, 3));
 }
 
 
